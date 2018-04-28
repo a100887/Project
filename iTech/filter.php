@@ -75,55 +75,12 @@
             <input class="filterBtn" type="submit" name="filter" value="Filter">
         </form>
         
-        <div class="searchItem">
-            <form method="post" action="<?php $_SERVER['PHP_SELF'];?>" class="search-container">
-                <input name="searchInput" type="text" id="search-bar" placeholder="Search...">
-                <input class="search-icon" name="searchBar" type="image" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png">
-            </form>
-        </div>     
-        
-        <main class="prodMain">
+ 
+        <main class="prodMain">  
             <?php
                 
-                $searchInput = "";
-                
-                if (isset($_POST['searchInput'])) {
-                    $searchInput = $_POST['searchInput'];
-                }
-            
-                $conn = mysqli_connect("localhost", "root", "", "itech_db") 
-                    or die("Cannot connect to database");
-                $query = "SELECT * FROM product WHERE pName like '%$searchInput%'";
-                
-                $result = mysqli_query($conn, $query);
-            
-                if(mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        
-                        echo "<div class='product'>
-                                 <a href='http://localhost/itech/reviews.php?pid=$row[pId]'><img src='$row[pImage]'></a>
-                                 <h3><a class='prodTitle' href='http://localhost/itech/reviews.php?pid=$row[pId]'>$row[pName]</a></h3>
-                                 <hr>
-                                 <p class='price'>Price: &euro;$row[pPrice]</p>
-                                 <p>Stock: $row[pStock]</p>
-                                 <p>$row[pDescription]</p>
-                                 <button class='prodButton'>Add to Cart</button>
-                             </div>";
-                    }
-                }
-            
-                else {
-                    echo "<h3 class='noResult'>Your search returns no results</h3>";
-                }
-                
-                
-            
-            
-            
-            
-            
-            if (isset($_POST['filter'])) {
-                
+                if (isset($_POST['filter'])) {
+                echo "<br><h2 class='noResult'>Filtered results</h2>";
                 $colour = $_POST['colour'];
                 $category = $_POST['category'];
 
@@ -155,6 +112,7 @@
                         echo "<h3 class='noResult'>No results matched those filtering options</h3>";
                     }
                 }
+            
             ?>
         </main>
 

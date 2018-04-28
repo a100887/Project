@@ -24,6 +24,9 @@
                     <a class="nav-link" href="products.php">Products</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="gallery.php">Gallery</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="about.php">About</a>
                 </li>
                 <li class="nav-item">
@@ -103,7 +106,7 @@
 
                             if (mysqli_query($conn, $query)) {
                                 
-                                echo "<script type='text/javascript'>swal('Success!', 'Comment submitted', 'success');</script>";
+                                header("Refresh:0");
                             }
 
                             else {
@@ -117,10 +120,77 @@
                     }
                     
                     else {
-                        echo "<script type='text/javascript'>swal('Error!', 'Must be logged in', 'error');</script>";
-                    }
-                            
+                        echo "<script type='text/javascript'>swal('Error!', 'Must be logged in to comment', 'error');</script>";
+                    }     
                 }   
+            ?>
+            
+            <form class="ratingForm" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+              <div class="ratingDiv">
+                
+                 <select name="rateNumber">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select>
+               <input name="ratingBtn" type="submit" value="Rate">
+                  
+              </div>
+               
+            </form>
+            
+            <?php
+                
+                $conn = mysqli_connect("localhost", "root", "", "itech_db") 
+                        or die("Cannot connect to database");
+
+                $query = "SELECT AVG(prRating) FROM product_rating WHERE prProductId = $pId";
+            
+                $result = mysqli_query($conn, $query);
+                
+            
+                $row = mysqli_fetch_row($result);
+            
+                if (!empty($row[0])) {
+                    echo "<p class='productRating'>Rating: $row[0]</p>";
+                }
+            
+                else {
+                    
+                    echo "<p class='productRating'>No ratings</p>";
+                }
+            
+                if (isset($_POST['ratingBtn'])) {
+                    
+                    $rating = $_POST['rateNumber'];
+                    
+                    if (isset($_SESSION['clientId'])) {
+                        
+                        $cId = $_SESSION['clientId'];
+                        
+                        $conn = mysqli_connect("localhost", "root", "", "itech_db") 
+                        or die ("Cannot connect to the database");
+                        
+                        $query = "INSERT INTO product_rating (prClientId, prProductId, prRating)
+                            VALUES('$cId', '$pId', '$rating')";
+                        
+                        $result = mysqli_query($conn, $query);
+                        
+                        if ($result) {
+                            echo "<script type='text/javascript'>swal('Success!', 'Your rating has been recorded', 'success');</script>";
+                        }
+                        
+                        else {
+                            echo "<script type='text/javascript'>swal('Error!', 'You already rated this product', 'error');</script>";
+                        }
+                    }
+                    
+                    else {
+                        echo "<script type='text/javascript'>swal('Error!', 'Must be logged in to rate a product', 'error');</script>";
+                    }
+                }
             ?>
            
             <form class="commentForm" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
