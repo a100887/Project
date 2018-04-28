@@ -1,0 +1,97 @@
+<?php 
+    session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>iTech - Home</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body id="productsBody">
+        <nav class="stroke" id="mainNav">
+            <ul class="nav justify-content-end">
+               
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="products.php">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.php">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.php">Contact</a>
+                </li>
+                
+                <li class="nav-item navSignIn">
+                    <?php
+                        if (isset($_SESSION['clientId'])) {
+                            echo "<a class='nav-link active signBtn' href='logout.php'>Logout</a>";
+                        }
+                        
+                        else {
+                            echo "<a class='nav-link active signBtn' href='login.php'>Sign in</a>";
+                        }
+                        
+                    ?>
+                    
+                </li>
+            </ul>
+            
+        </nav>
+        
+        <div class="searchItem">
+            <form method="post" action="<?php $_SERVER['PHP_SELF'];?>" class="search-container">
+                        <input name="searchInput" type="text" id="search-bar" placeholder="Search...">
+                        <input class="search-icon" name="searchBar" type="image" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png">
+                   </form>
+        </div>
+                   
+        
+        <main class="prodMain">
+            <?php
+                
+                $searchInput = "";
+                
+                if (isset($_POST['searchInput'])) {
+                    $searchInput = $_POST['searchInput'];
+                }
+                
+                $conn = mysqli_connect("localhost", "root", "", "itech_db") 
+                    or die("Cannot connect to database");
+                $query = "SELECT * FROM product WHERE pName like '%$searchInput%'";
+                
+                $result = mysqli_query($conn, $query);
+                
+                if(mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        
+                        echo "<div class='product'>
+                                 <a href='http://localhost/itech/comments.php?pid=$row[pId]'><img src='$row[pImage]'></a>
+                                 <h3><a class='prodTitle' href='http://localhost/itech/comments.php?pid=$row[pId]'>$row[pName]</a></h3>
+                                 <hr>
+                                 <p class='price'>Price: &euro;$row[pPrice]</p>
+                                 <p>Stock: $row[pStock]</p>
+                                 <p>$row[pDescription]</p>
+                                 <button class='prodButton'>Add to Cart</button>
+                             </div>";
+                    }
+                }
+            
+                else {
+                    echo "<h3 class='noResult'>Your search returns no results</h3>";
+                }
+            ?>
+        </main>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    </body>
+</html>
+
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="EN">
+<head> <!--head information-->
+	<meta charset="UTF-8"/>
+	<title>Enter details</title>
+	<link rel="stylesheet" type="text/css" href="../runtime/bootstrap.min.css"/>
+    <script src='../runtime/jquery-3.2.1.min.js'></script>
+    <srcipt src='../runtime/popper.min.js'></srcipt>
+    <script src='../runtime/bootstrap.min.js'></script>    
+</head>
+<body>
+	<div class='container'>
+        <h1>Enter your information</h1>
+        <form method="post" action="contactus.php">		
+            <div class='form-group row'>
+                <label for="username" class='col-sm-2'>Username(email a/c):</label>
+                <input type="email" id="username" name="username" class='form-control col-sm-10'/>
+            </div>
+            <div class='form-group row'>
+                <label for="pwd" class='col-sm-2'>Password:</label>
+                <input type="password" id="pwd" name="pwd" class='form-control col-sm-10'/>
+            </div>
+            <div class='form-group row'> <!--later-->
+                <label for="emailTo" class='col-sm-2'>Send To:</label>
+                <input type="email" id="emailTo" name="emailTo" class='form-control col-sm-10'/>
+            </div>
+            <div class='form-group row'>
+                <label for="comments" class='col-sm-2'>Comments:</label>
+                <textarea type="text" id="comments" name="comments" class='form-control col-sm-10'></textarea>
+            </div>
+            <!--buttons-->
+            <div class='form-group'>
+                <input type="submit" value="Submit information" class='btn btn-primary'/>
+                <input type="reset" value="Reset fields" class='btn btn-default'/>
+            </div>
+        </form>	
+	   Written by <a href="mailto:kris.domancich@gmail.com">Kris Domancich</a>.<br> 
+    </div>
+</body>
