@@ -184,7 +184,7 @@ public class InsertProduct extends javax.swing.JFrame {
                         .addGap(93, 93, 93)
                         .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
-                        .addComponent(btnBackMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnBackMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -245,6 +245,25 @@ public class InsertProduct extends javax.swing.JFrame {
         return check;
     }
     
+    public boolean isAlphabetic(String data) {
+        
+        boolean check = false;
+        
+        for (int i = 0; i < data.length(); i++) {
+            
+            if (Character.isLetter(data.charAt(i))) {
+                check = true;
+            }
+            
+            else {
+                check = false;
+                break;
+            }
+        }
+        
+        return check;
+    }
+    
     public void insertProduct(String name, String stock, String price, String image, String description, int category, int manufacturer, int colour)
     {
          try {               
@@ -255,9 +274,10 @@ public class InsertProduct extends javax.swing.JFrame {
             
              stmt.executeUpdate("INSERT INTO product (pName, pStock, pPrice, pImage, pDescription, pCategoryId, pManufacturerId, pColourId)"
                     + " VALUES ('" + name + "', '" + stock + "', '" + price + "', '" + image + "', '" + description + "', '" + category + "', '" 
-                     + manufacturer + "', '" + colour + "')");            
+                     + manufacturer + "', '" + colour + "')");
             con.close();
-            System.out.println("Record successfully added");
+            JOptionPane.showMessageDialog(this, "Record successfully added", "Insert Product",
+                JOptionPane.INFORMATION_MESSAGE);
         } 
          catch (Exception e) {
              
@@ -345,7 +365,16 @@ public class InsertProduct extends javax.swing.JFrame {
         System.out.println(manufacturer);
         System.out.println(colour);
         if (isNotEmpty(name, stock, price, image, description)) {
-            insertProduct(name, stock, price, image, description, category, manufacturer, colour);
+            
+            if (isAlphabetic(name)) {
+                insertProduct(name, stock, price, image, description, category, manufacturer, colour);
+            }
+            
+            else {
+                JOptionPane.showMessageDialog(this, "Must insert correct values in the text fields", "Insert Client",
+                    JOptionPane.ERROR_MESSAGE);
+            }
+            
         }
         
         else {

@@ -1,3 +1,4 @@
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -13,12 +14,12 @@ import javax.swing.JOptionPane;
  *
  * @author Silvan Vella <your.name at your.org>
  */
-public class UpdateProduct extends javax.swing.JFrame {
+public class UpdateClient extends javax.swing.JFrame {
 
     /**
-     * Creates new form UpdateProduct
+     * Creates new form UpdateClient
      */
-    public UpdateProduct() {
+    public UpdateClient() {
         initComponents();
     }
 
@@ -31,25 +32,34 @@ public class UpdateProduct extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnPUpdate = new javax.swing.JButton();
-        btnBkMenu = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        txtField = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        txtClientId = new javax.swing.JTextField();
+        txtUpdate = new javax.swing.JTextField();
         txtValue = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtPid = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        btnUpdate = new javax.swing.JButton();
+        btnBkMenu = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         logout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnPUpdate.setText("Update");
-        btnPUpdate.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Update Client");
+
+        jLabel2.setText("Client ID: ");
+
+        jLabel3.setText("New Value");
+
+        jLabel4.setText("Update Field");
+
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPUpdateActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
 
@@ -59,15 +69,6 @@ public class UpdateProduct extends javax.swing.JFrame {
                 btnBkMenuActionPerformed(evt);
             }
         });
-
-        jLabel1.setText("Update Field: ");
-
-        jLabel2.setText("Value:");
-
-        jLabel3.setText("Product ID: ");
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("Update Product");
 
         jMenu1.setText("Menu");
 
@@ -88,56 +89,55 @@ public class UpdateProduct extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(15, 15, 15)
+                            .addComponent(jLabel4))
+                        .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPid, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtField, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(69, Short.MAX_VALUE))
+                            .addComponent(txtClientId, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnPUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBkMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))))
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)
+                        .addComponent(btnBkMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(32, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(91, 91, 91))
+                .addComponent(jLabel1)
+                .addGap(114, 114, 114))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtPid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                    .addComponent(txtClientId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                    .addComponent(txtUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(67, 67, 67)
+                    .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBkMenu)
-                    .addComponent(btnPUpdate))
-                .addGap(23, 23, 23))
+                    .addComponent(btnUpdate)
+                    .addComponent(btnBkMenu))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     public boolean isNotEmpty(String val, String field, String pId) {
         
         boolean check = false;
@@ -149,7 +149,7 @@ public class UpdateProduct extends javax.swing.JFrame {
         return check;
     }
     
-    public void productUpdate(String val, String field, String pId)
+    public void clientUpdate(String val, String field, String cltId)
             
     {
          try {               
@@ -157,41 +157,32 @@ public class UpdateProduct extends javax.swing.JFrame {
                     "jdbc:mysql://localhost/itech_db", "root", "");
  
             Statement stmt = con.createStatement();
-            stmt.executeUpdate("update product set " + field + " = '" + val + "' where pId = '" + pId + "'");
+            stmt.executeUpdate("update client set " + field + " = '" + val + "' where cltId = '" + cltId + "'");
             con.close();
             JOptionPane.showMessageDialog(this, "Record successfully updated", "Update Client",
                 JOptionPane.INFORMATION_MESSAGE);
-            
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Correct values and field names must be correct", "Update Product",
+            JOptionPane.showMessageDialog(this, "Correct values and field names must be correct", "Update Client",
                 JOptionPane.ERROR_MESSAGE);
         }
     }
-
     
-    private void btnPUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPUpdateActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        String pid = txtPid.getText().trim();
-        String field = txtField.getText().trim();
+        
+        String cltId = txtClientId.getText().trim();
+        String field = txtUpdate.getText().trim();
         String val = txtValue.getText().trim();
         
-        if(isNotEmpty(val, field, pid)) {
-            productUpdate(val, field, pid);
+        if(isNotEmpty(val, field, cltId)) {
+            clientUpdate(val, field, cltId);
         }
         
         else {
             JOptionPane.showMessageDialog(this, "Cannot be left blank", "Update Client",
                 JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_btnPUpdateActionPerformed
-
-    private void btnBkMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBkMenuActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        Menu menu = new Menu();
-        menu.setVisible(true);
-        
-    }//GEN-LAST:event_btnBkMenuActionPerformed
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         // TODO add your handling code here:
@@ -199,6 +190,13 @@ public class UpdateProduct extends javax.swing.JFrame {
         Login lgn = new Login();
         lgn.setVisible(true);
     }//GEN-LAST:event_logoutActionPerformed
+
+    private void btnBkMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBkMenuActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Menu menu = new Menu();
+        menu.setVisible(true);
+    }//GEN-LAST:event_btnBkMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,27 +215,27 @@ public class UpdateProduct extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UpdateProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UpdateProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UpdateProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UpdateProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UpdateClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UpdateProduct().setVisible(true);
+                new UpdateClient().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBkMenu;
-    private javax.swing.JButton btnPUpdate;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -245,8 +243,8 @@ public class UpdateProduct extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem logout;
-    private javax.swing.JTextField txtField;
-    private javax.swing.JTextField txtPid;
+    private javax.swing.JTextField txtClientId;
+    private javax.swing.JTextField txtUpdate;
     private javax.swing.JTextField txtValue;
     // End of variables declaration//GEN-END:variables
 }

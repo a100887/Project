@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
  *
  * @author Silvan Vella <your.name at your.org>
  */
-public class DeleteProduct extends javax.swing.JFrame {
+public class DeleteClient extends javax.swing.JFrame {
 
     /**
-     * Creates new form DeleteProduct
+     * Creates new form DeleteClient
      */
-    public DeleteProduct() {
+    public DeleteClient() {
         initComponents();
     }
 
@@ -32,37 +32,40 @@ public class DeleteProduct extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        bkMenuBtn = new javax.swing.JButton();
-        deleteBtn = new javax.swing.JButton();
-        deleteTxt = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtDelete = new javax.swing.JTextField();
+        btnBkMenu = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
         logout = new javax.swing.JMenuItem();
+
+        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Delete Product");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("Delete Client");
 
-        bkMenuBtn.setText("Back to Menu");
-        bkMenuBtn.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setText("Client ID: ");
+
+        btnBkMenu.setText("Back to Menu");
+        btnBkMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bkMenuBtnActionPerformed(evt);
+                btnBkMenuActionPerformed(evt);
             }
         });
 
-        deleteBtn.setText("Delete");
-        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteBtnActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Product ID:");
-
-        jMenu1.setText("Menu");
+        jMenu2.setText("Menu");
 
         logout.setText("Logout");
         logout.addActionListener(new java.awt.event.ActionListener() {
@@ -70,53 +73,52 @@ public class DeleteProduct extends javax.swing.JFrame {
                 logoutActionPerformed(evt);
             }
         });
-        jMenu1.add(logout);
+        jMenu2.add(logout);
 
-        jMenuBar2.add(jMenu1);
+        jMenuBar1.add(jMenu2);
 
-        setJMenuBar(jMenuBar2);
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(16, 16, 16)
-                .addComponent(deleteTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(deleteBtn)
-                .addGap(28, 28, 28))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(bkMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDelete))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(90, 90, 90)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(btnBkMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteBtn)
-                    .addComponent(deleteTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(68, 68, 68)
-                .addComponent(bkMenuBtn)
-                .addGap(41, 41, 41))
+                    .addComponent(jLabel1)
+                    .addComponent(txtDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDelete))
+                .addGap(53, 53, 53)
+                .addComponent(btnBkMenu)
+                .addGap(31, 31, 31))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void delProduct(String pId)
+    public void delProduct(String cId)
     {
          try {               
             Connection con = DriverManager.getConnection(
@@ -124,47 +126,48 @@ public class DeleteProduct extends javax.swing.JFrame {
             
             Statement stmt = con.createStatement();
             
-            stmt.executeUpdate("delete from product where pId= '" + pId + "'");            
+            stmt.executeUpdate("delete from client where cltId= '" + cId + "'");            
             con.close();
-            JOptionPane.showMessageDialog(this, "Product has been deleted", "Delete Product",
+            JOptionPane.showMessageDialog(this, "Client has been deleted", "Delete Client",
                 JOptionPane.INFORMATION_MESSAGE);
         } 
          catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Failed to delete product", "Delete Product",
+            JOptionPane.showMessageDialog(this, "Failed to delete client", "Client Product",
                 JOptionPane.ERROR_MESSAGE);
         }
     }
     
-    public boolean isNotEmpty(String pId) {
+    public boolean isNotEmpty(String cId) {
         boolean check = false;
         
-        if (!pId.equals("")) {
+        if (!cId.equals("")) {
             check = true;
         }
         
         return check;
     }
-
     
-    private void bkMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bkMenuBtnActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        
+        String cId = txtDelete.getText();
+        if (isNotEmpty(cId)) {
+            delProduct(cId);
+        }
+        
+        else {
+            
+            JOptionPane.showMessageDialog(this, "Cannot be left blank", "Client Product",
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnBkMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBkMenuActionPerformed
         // TODO add your handling code here:
         this.dispose();
         Menu menu = new Menu();
         menu.setVisible(true);
-    }//GEN-LAST:event_bkMenuBtnActionPerformed
-
-    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
-        // TODO add your handling code here:
-        String pId = deleteTxt.getText();
-        if (isNotEmpty(pId)) {
-            delProduct(pId);
-        }
-        
-        else {
-            JOptionPane.showMessageDialog(this, "Cannot be left blank", "Delete Product",
-                JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_deleteBtnActionPerformed
+    }//GEN-LAST:event_btnBkMenuActionPerformed
 
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
         // TODO add your handling code here:
@@ -190,32 +193,33 @@ public class DeleteProduct extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DeleteProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DeleteProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DeleteProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DeleteProduct.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DeleteClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DeleteProduct().setVisible(true);
+                new DeleteClient().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bkMenuBtn;
-    private javax.swing.JButton deleteBtn;
-    private javax.swing.JTextField deleteTxt;
+    private javax.swing.JButton btnBkMenu;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem logout;
+    private javax.swing.JTextField txtDelete;
     // End of variables declaration//GEN-END:variables
 }

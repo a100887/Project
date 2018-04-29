@@ -57,6 +57,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         pUpdateBtn.setText("Update");
+        pUpdateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pUpdateBtnActionPerformed(evt);
+            }
+        });
 
         pDeleteBtn.setText("Delete");
         pDeleteBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -96,10 +101,25 @@ public class Menu extends javax.swing.JFrame {
         jPanel4.setToolTipText("");
 
         cDeleteBtn.setText("Delete");
+        cDeleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cDeleteBtnActionPerformed(evt);
+            }
+        });
 
         cInsertBtn.setText("Insert");
+        cInsertBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cInsertBtnActionPerformed(evt);
+            }
+        });
 
         cUpdateBtn.setText("Update");
+        cUpdateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cUpdateBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -175,8 +195,8 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,6 +228,34 @@ public class Menu extends javax.swing.JFrame {
         Login lgn = new Login();
         lgn.setVisible(true);
     }//GEN-LAST:event_logoutActionPerformed
+
+    private void pUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pUpdateBtnActionPerformed
+        // TODO add your handling code here:
+        UpdateProduct up = new UpdateProduct();
+        up.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_pUpdateBtnActionPerformed
+
+    private void cInsertBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cInsertBtnActionPerformed
+        // TODO add your handling code here:
+        InsertClient ic = new InsertClient();
+        ic.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_cInsertBtnActionPerformed
+
+    private void cDeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cDeleteBtnActionPerformed
+        // TODO add your handling code here:
+        DeleteClient dc = new DeleteClient();
+        dc.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_cDeleteBtnActionPerformed
+
+    private void cUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cUpdateBtnActionPerformed
+        // TODO add your handling code here:
+        UpdateClient uc = new UpdateClient();
+        uc.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_cUpdateBtnActionPerformed
 
     /**
      * @param args the command line arguments

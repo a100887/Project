@@ -119,7 +119,8 @@ public class Login extends javax.swing.JFrame {
             con.close();
         } 
          catch (Exception e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Query failed", "Login",
+                JOptionPane.ERROR_MESSAGE);
          }
          
          return check;
