@@ -126,15 +126,32 @@ public class Login extends javax.swing.JFrame {
          return check;
     }
     
+    public boolean isLoginNotEmpty(String user, String pwd) {
+        boolean check = false;
+        if (user.equals("") || pwd.equals("")) {
+            check = true;
+        }
+        
+        return check;
+    }
+    
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
         String aId = usernameTxt.getText();
         String pwd = passwordTxt.getText();
         
-        if (login(aId, pwd)) {
-            this.dispose();
-            Menu menu = new Menu();
-            menu.setVisible(true);
+        if (isLoginNotEmpty(aId, pwd)) {
+            
+            if (login(aId, pwd)) {
+                this.dispose();
+                Menu menu = new Menu();
+                menu.setVisible(true);
+            }
+            
+            else {
+                JOptionPane.showMessageDialog(this, "Cannot be left blank", "Login",
+                JOptionPane.ERROR_MESSAGE);
+            }
         }
         
         else {
