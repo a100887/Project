@@ -5,7 +5,9 @@
     $query = "SELECT * FROM country";
 
     $result = mysqli_query($conn, $query) 
-        or die ("Error in query" . mysqli_error($conn));;
+        or die ("Error in query" . mysqli_error($conn));
+
+    ob_start();
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +38,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact.php">Contact</a>
                 </li>
-                
+                <li class="nav-item">
+                    <a class="nav-link active" href="cart.php"><img class="cart" src="images/cart.png"></a>
+                </li>
                 <li class="nav-item navSignIn">
                     <?php
                         if (isset($_SESSION['clientId'])) {
@@ -82,7 +86,7 @@
             
             <div class='form-group row'>
                 <label for="street" class='col-sm-2'>Street:</label>
-                <input required pattern="[A-Za-z]{1,}" title="Characters must be alpabethic" type="text" id="street" name="street" class='form-control col-sm-10'/>
+                <input required title="Characters must be alpabethic" type="text" id="street" name="street" class='form-control col-sm-10'/>
             </div>
             
             <div class='form-group row'>
@@ -152,11 +156,11 @@
             return $check;
         }
         
-        function validation($name, $surname, $email, $password, $houseNo, $street, $locality, $countryId, $phone) {
+        function validation($name, $surname, $email, $password, $houseNo, $locality, $countryId, $phone) {
             
             $check = false;
         
-            if (!empty($name && $surname && $email && $password && $houseNo && $street && $locality && $phone)) {
+            if (!empty($name && $surname && $email && $password && $houseNo && $locality && $phone)) {
                 
                 
                 //if ((is_numeric($houseNo) && is_numeric($phone)) && (!(is_numeric($name) && is_numeric($surname) && is_numeric($street) && is_numeric($locality)))) {
@@ -180,7 +184,7 @@
         $phone = checkInput($_POST['phoneNo']);
         $countryId = checkInput($_POST['country']);
         
-        if (validation($name, $surname, $email, $password, $houseNo, $street, $locality, $countryId, $phone)) {
+        if (validation($name, $surname, $email, $password, $houseNo, $locality, $countryId, $phone)) {
             
             if (isRegistered($email)) {
                 echo "<script type='text/javascript'>swal('Error!', 'Email already exists', 'error');</script>";

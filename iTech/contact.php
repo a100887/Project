@@ -28,7 +28,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact.php">Contact</a>
                 </li>
-                
+                <li class="nav-item">
+                    <a class="nav-link active" href="cart.php"><img class="cart" src="images/cart.png"></a>
+                </li>
                 <li class="nav-item navSignIn">
                     <?php
                         if (isset($_SESSION['clientId'])) {

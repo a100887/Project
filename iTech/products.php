@@ -29,7 +29,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact.php">Contact</a>
                 </li>
-                
+                <li class="nav-item">
+                    <a class="nav-link active" href="cart.php"><img class="cart" src="images/cart.png"></a>
+                </li>
                 <li class="nav-item navSignIn">
                     <?php
                         if (isset($_SESSION['clientId'])) {
@@ -107,7 +109,7 @@
                                  <p class='price'>Price: &euro;$row[pPrice]</p>
                                  <p>Stock: $row[pStock]</p>
                                  <p>$row[pDescription]</p>
-                                 <button class='prodButton'>Add to Cart</button>
+                                 <button class='prodButton'><a href='http://localhost/itech/cart.php?pid=$row[pId]'>Add to Cart</a></button>
                              </div>";
                     }
                 }
@@ -115,12 +117,6 @@
                 else {
                     echo "<h3 class='noResult'>Your search returns no results</h3>";
                 }
-                
-                
-            
-            
-            
-            
             
             if (isset($_POST['filter'])) {
                 
@@ -145,7 +141,7 @@
                                         <p class='price'>Price: &euro;$row[pPrice]</p>
                                         <p>Stock: $row[pStock]</p>
                                         <p>$row[pDescription]</p>
-                                        <button class='prodButton'>Add to Cart</button>
+                                        <button class='prodButton'><a href='http://localhost/itech/cart.php?pid=$row[pId]'>Add to Cart</a></button>
                                   </div>";
                             }
                     }

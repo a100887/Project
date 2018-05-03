@@ -247,13 +247,18 @@ nav {
   background-color: #4dc18b;
   border: none;
   padding: 3%;
+  color: black;
   cursor: pointer;
   transition: 0.3s;
-  
+}
+
+.prodButton a {
+  color: white;
+  text-decoration: none;
 }
 
 .prodButton:hover {
-  background: black;
+  background-color: black;
   color: white;
   transition: 0.3s; 
 }
@@ -820,3 +825,68 @@ footer{
   transform: scale(1.2);
   transition: 0.3s;
 }
+
+.cart {
+  width: 25px;
+}
+
+/*shopping cart*/
+
+#scBody {
+  background-color: #4f4f4f;
+  color: white;
+  
+}
+
+.scDelete {
+  border: none;
+  color: white;
+  background-color: #4dc18b; 
+  padding: 3%;
+  width: 50%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.scDelete a {
+  color: white;
+  text-decoration: none;
+}
+
+.scDelete:hover {
+  transition: 0.3s;
+  background-color: black;
+}
+
+
+.shoppingCartTbl {
+  width: 60%;
+  margin: 0 auto;
+  padding: 1%;
+}
+
+.shoppingCartTbl th {
+    background-color: black;
+    color: white;
+    padding: 1.5%;
+    border-bottom: black 2px;
+}
+
+.shoppingCartTbl tr {
+  padding: 1%;
+}
+
+.scQuantity {
+  text-align: center;
+  width: 12%;
+  border: none;
+  background-color: transparent;
+  color: white;
+  
+}
+
+.shoppingCartTbl tr td {
+  padding: 1.5%;
+  border-bottom: 1px solid white;
+}
+
