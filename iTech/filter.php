@@ -89,7 +89,7 @@
                 $conn = mysqli_connect("localhost", "root", "", "itech_db") 
                 or die("Cannot connect to database");
 
-                $query = "SELECT * FROM product WHERE pColourId = '$colour' AND pCategoryId = '$category'";
+                $query = "SELECT * FROM product WHERE pColourId = '$colour' AND pCategoryId = '$category' AND pStock > '0'";
 
                 $result = mysqli_query($conn, $query);
 
@@ -104,7 +104,7 @@
                                         <p class='price'>Price: &euro;$row[pPrice]</p>
                                         <p>Stock: $row[pStock]</p>
                                         <p>$row[pDescription]</p>
-                                        <button class='prodButton'><a href='http://localhost/itech/cart.php?pid=$row[pId]'>Add to Cart</a></button>
+                                        <a href='http://localhost/itech/cart.php?pid=$row[pId]'><button class='prodButton'>Add to Cart</button></a>
                                   </div>";
                             }
                     }
@@ -123,5 +123,3 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     </body>
 </html>
-
-

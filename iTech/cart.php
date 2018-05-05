@@ -33,7 +33,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link active" href="contact.php"><img class="cart" src="images/cart.png"></a>
+                    <a class="nav-link active" href="cart.php"><img class="cart" src="images/cart.png"></a>
                 </li>
                 
                 <li class="nav-item navSignIn">
@@ -53,15 +53,14 @@
         
         <main>
             <section>
-               
                <table class='shoppingCartTbl'>
                                             <tr>
                                                 <th>#</th>
                                                 <th>Product</th>
                                                 <th>Price</th>
                                                 <th class='hrQuantity'>Quantity</th>
+                                                <th>Update</th>
                                                 <th>Delete</th>
-
                                             </tr>
                
                 <?php
@@ -100,6 +99,16 @@
                        return $check;
                    }
                    
+                   function updateCartQuantity($quantity, $pId) {
+            
+                       $conn = mysqli_connect("localhost", "root", "", "itech_db") 
+                            or die ("Cannot connect to database");
+
+                       $query = "UPDATE shopping_cart SET scQuantity = $quantity WHERE scProductId = '$pId'";
+                       
+                       mysqli_query($conn, $query);
+                   }
+                   
                     if (!empty($_GET['pid'])) {
 
                        $_SESSION['productId'] = $_GET['pid'];
@@ -120,12 +129,10 @@
                             }
                             
                             else {
-                                echo "<script type='text/javascript'>swal('Error!', 'You have already added this product to the cart', 'error');</script>";
+                                echo "<script type='text/javascript'>swal('Error!', 'You have already added this product to the shopping cart', 'error');</script>";
                             }
                         }
                     }
-                
-                    //else {
                         
                     if (isset($_SESSION['clientId'])) {
                             
@@ -151,8 +158,12 @@
                                             <td>$counter</td>
                                             <td>$row[13] $row[1]</td>
                                             <td>&euro;$row[3]</td>
-                                            <td><input name='scQuantity' type='number' step='1' min='1' value='1' class='scQuantity'></td>
-                                            <td><button class='scDelete'><a href='http://localhost/itech/cart.php?delPid=$row[0]'>Remove</a></button></td>
+                                            <form method='post' action='cart.php'>
+                                                <td><input name='scQuantity' type='number' step='1' min='1' value='$row[11]' class='scQuantity'></td>
+                                                <input type='hidden' name='upPid' value='$row[0]'>
+                                                <td><input class='scDelete' type='submit' name='update' value='Update'></td>
+                                            </form>
+                                            <td><a href='http://localhost/itech/cart.php?delPid=$row[0]'><button type='button' class='scDelete'>Remove</button></a></td>
                                         </tr>";
                             }
                                 
@@ -168,16 +179,34 @@
                         }
                             
                         else {
-                             echo "<h3>Shopping Cart is empty</h3>";
+                             echo "<br><h3 class='noResult'>Shopping Cart is empty</h3><br>";
                         }
                     }
                         
                     else {
                         echo "<br><h3 class='noResult'>You need to be logged in to access the shopping cart</h3><br>";
                     }
-                    //}
+                   
+                   if (isset($_POST['upPid'])) {
+                       
+                       $upPid = $_POST['upPid'];
+                       $quantity = $_POST['scQuantity'];
+                       
+                       if ($quantity > 0) {
+                           updateCartQuantity($quantity, $upPid);
+                       }
+                       
+                       else {
+                           echo "<script type='text/javascript'>swal('Error!', 'The quantity value cannot be below 1', 'error');</script>";
+                       }
+                   }
                 ?>
+                
                 </table>
+                <form action="checkout.php" method="post">
+                    <input id="checkoutSub" class="checkoutBtn" name="checkout" type="submit" value="Checkout">
+                </form>
+                <a href="products.php"><button class="contShopBtn">Continue Shopping</button></a>
             </section>
         </main>
         
