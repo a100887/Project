@@ -173,7 +173,7 @@
                                     
                                 if(removeFromCart($delPid)) {
                                     
-                                    echo "<script type='text/javascript'>swal('Item Deleted!', 'The item has been removed from the shopping cart', 'success');</script>";
+                                    echo "<script type='text/javascript'>window.location.href='cart.php';</script>";
                                 }
                             }
                         }
@@ -194,6 +194,7 @@
                        
                        if ($quantity > 0) {
                            updateCartQuantity($quantity, $upPid);
+                            echo "<script type='text/javascript'>window.location.href='cart.php';</script>";
                        }
                        
                        else {

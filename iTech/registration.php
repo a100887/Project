@@ -6,8 +6,6 @@
 
     $result = mysqli_query($conn, $query) 
         or die ("Error in query" . mysqli_error($conn));
-
-    ob_start();
 ?>
 
 <!DOCTYPE html>
@@ -201,7 +199,14 @@
                 $result = mysqli_query($conn, $query);
                             
                 if ($result) {
-                    echo "<script type='text/javascript'>swal('Success!', 'Registration Completed', 'success');</script>";
+                    
+                    session_start();
+                    
+                    $_SESSION['registered'] = true;
+                    $_SESSION['email'] = $email;
+                    
+                    
+                    echo "<script>swal('Registration Completed!', 'You have successfully registered', 'success'); window.location.href='send.php';</script>";
                 }
                             
                 else {
