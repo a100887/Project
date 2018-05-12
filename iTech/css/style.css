@@ -189,6 +189,13 @@ nav {
   text-align: center;
 }
 
+.logoText {
+  font-size: 100px;
+}
+
+.logoImg {
+  width: 12%;
+}
 /*products*/
 
 #productsBody {

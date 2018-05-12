@@ -1,4 +1,7 @@
 <?php
+    
+    session_start();
+    
     $conn = mysqli_connect("localhost", "root", "", "itech_db") 
         or die("Cannot connect to database");
 
@@ -200,13 +203,9 @@
                             
                 if ($result) {
                     
-                    session_start();
-                    
-                    $_SESSION['registered'] = true;
                     $_SESSION['email'] = $email;
                     
-                    
-                    echo "<script>swal('Registration Completed!', 'You have successfully registered', 'success'); window.location.href='send.php';</script>";
+                    echo "<script>swal('Registration Completed!', 'You have successfully registered', 'success'); window.location.href='confirmation.php';</script>";
                 }
                             
                 else {
