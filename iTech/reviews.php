@@ -95,7 +95,7 @@
                         
                         $cId = $_SESSION['clientId'];
                         
-                        $comment = checkInput($_POST['comment']);
+                        $comment = addslashes(checkInput($_POST['comment']));
                         
                         if (!empty($comment)) {
                             
@@ -140,7 +140,6 @@
                <input name="ratingBtn" type="submit" value="Rate">
                   
               </div>
-               
             </form>
             
             <?php
@@ -148,7 +147,7 @@
                 $conn = mysqli_connect("localhost", "root", "", "itech_db") 
                         or die("Cannot connect to database");
 
-                $query = "SELECT AVG(prRating) FROM product_rating WHERE prProductId = $pId";
+                $query = "SELECT ROUND(AVG(prRating), 1) FROM product_rating WHERE prProductId = $pId";
             
                 $result = mysqli_query($conn, $query);
                 

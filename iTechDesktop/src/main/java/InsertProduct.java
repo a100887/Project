@@ -352,11 +352,11 @@ public class InsertProduct extends javax.swing.JFrame {
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
-        String name = txtName.getText();
-        String stock = txtStock.getText();
-        String price = txtPrice.getText();
-        String image = txtImage.getText();
-        String description = txtDescription.getText();
+        String name = txtName.getText().trim();
+        String stock = txtStock.getText().trim();
+        String price = txtPrice.getText().trim();
+        String image = txtImage.getText().trim();
+        String description = txtDescription.getText().trim();
         int category = cmbCategory.getSelectedIndex() + 1;
         int manufacturer = cmbManufacturer.getSelectedIndex() + 1;
         int colour = cmbColour.getSelectedIndex() + 1;
@@ -366,15 +366,7 @@ public class InsertProduct extends javax.swing.JFrame {
         System.out.println(colour);
         if (isNotEmpty(name, stock, price, image, description)) {
             
-            if (isAlphabetic(name)) {
-                insertProduct(name, stock, price, image, description, category, manufacturer, colour);
-            }
-            
-            else {
-                JOptionPane.showMessageDialog(this, "Must insert correct values in the text fields", "Insert Client",
-                    JOptionPane.ERROR_MESSAGE);
-            }
-            
+            insertProduct(name, stock, price, image, description, category, manufacturer, colour);
         }
         
         else {

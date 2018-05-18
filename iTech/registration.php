@@ -62,12 +62,12 @@
            
             <div class='form-group row'>
                 <label for="name" class='col-sm-2'>First Name:</label>
-                <input pattern="[A-Za-z]{1,}" title="Characters must be alpabethic E.g. John" required type="text" id="name" name="name" class='form-control col-sm-10'/>
+                <input pattern="[a-zA-Z ]+" title="Characters must be alpabethic E.g. John" required type="text" id="name" name="name" class='form-control col-sm-10'/>
             </div>
             
             <div class='form-group row'>
                 <label for="lastname" class='col-sm-2'>Last Name:</label>
-                <input pattern="[A-Za-z]{1,}" title="Characters must be alpabethic E.g. Doe" required type="text" id="lastname" name="lastname" class='form-control col-sm-10'/>
+                <input pattern="[a-zA-Z ]+" title="Characters must be alpabethic E.g. Doe" required type="text" id="lastname" name="lastname" class='form-control col-sm-10'/>
             </div>
             
             <div class='form-group row'> <!--later-->
@@ -87,13 +87,13 @@
             
             <div class='form-group row'>
                 <label for="street" class='col-sm-2'>Street:</label>
-                <input required title="Characters must be alpabethic" type="text" id="street" name="street" class='form-control col-sm-10'/>
+                <input required type="text" id="street" name="street" class='form-control col-sm-10'/>
             </div>
             
             <div class='form-group row'>
     
                 <label for="locality" class='col-sm-2'>Locality:</label>
-                <input required pattern="[A-Za-z]{1,}" title="Characters must be alpabethic" type="text" id="locality" name="locality" class='form-control col-sm-10'/>
+                <input required pattern="[a-zA-Z ]+" title="Characters must be alpabethic" type="text" id="locality" name="locality" class='form-control col-sm-10'/>
             </div>
             
             <div class='form-group row'>

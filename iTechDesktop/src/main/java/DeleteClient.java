@@ -118,7 +118,7 @@ public class DeleteClient extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void delProduct(String cId)
+    public void delClient(String cId)
     {
          try {               
             Connection con = DriverManager.getConnection(
@@ -152,12 +152,12 @@ public class DeleteClient extends javax.swing.JFrame {
         
         String cId = txtDelete.getText();
         if (isNotEmpty(cId)) {
-            delProduct(cId);
+            delClient(cId);
         }
         
         else {
             
-            JOptionPane.showMessageDialog(this, "Cannot be left blank", "Client Product",
+            JOptionPane.showMessageDialog(this, "Cannot be left blank", "Delete Client",
                 JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnDeleteActionPerformed

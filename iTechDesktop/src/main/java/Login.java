@@ -44,6 +44,7 @@ public class Login extends javax.swing.JFrame {
         passwordTxt = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setText("Username:");
 
@@ -128,7 +129,7 @@ public class Login extends javax.swing.JFrame {
     
     public boolean isLoginNotEmpty(String user, String pwd) {
         boolean check = false;
-        if (user.equals("") || pwd.equals("")) {
+        if (!(user.equals("") || pwd.equals(""))) {
             check = true;
         }
         
@@ -149,13 +150,13 @@ public class Login extends javax.swing.JFrame {
             }
             
             else {
-                JOptionPane.showMessageDialog(this, "Cannot be left blank", "Login",
+                JOptionPane.showMessageDialog(this, "Incorrect credentials", "Login",
                 JOptionPane.ERROR_MESSAGE);
             }
         }
         
         else {
-             JOptionPane.showMessageDialog(this, "Incorrect credentials", "Login",
+             JOptionPane.showMessageDialog(this, "Cannot be left empty", "Login",
                 JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_loginBtnActionPerformed

@@ -1,5 +1,4 @@
 <?php
-    
     session_start();
 
     require('phpmailer/PHPMailerAutoload.php'); #load the library required for phpmailer

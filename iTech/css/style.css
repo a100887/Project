@@ -319,24 +319,27 @@ input#search-bar{
   
   display: inline-block;
   width: 20%;
+  margin-top: 10px;
 }
 
 .radio3CategoryDiv {
   display: inline-block;
   width: 20%;
-  
+  margin-top: 10px;
 }
 
 .radio1CategoryDiv {
   display: inline-block;
   width: 20%;
   margin-left: 10%;
-  margin-top: 1%;
+  margin-top: 10px;
+  
 }
 
 .radio2CategoryDiv {
   width: 20%;
   display: inline-block;
+  margin-top: 10px;
   
 }
 
@@ -345,6 +348,7 @@ input#search-bar{
   display: inline-block;
   width: 20%;
   margin-left: 33%;
+  margin-top: 10px;
 }
 
 
@@ -352,6 +356,7 @@ input#search-bar{
   
   display: inline-block;
   width: 40%;
+  margin-top: 10px;
   
 }
 

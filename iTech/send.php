@@ -33,8 +33,6 @@
             echo "Mailer Error: ". $mail->ErrorInfo;
         }
         else
-            echo 'Message was sent';
             header("Location: contact.php");
     }
-    
 ?>

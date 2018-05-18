@@ -162,7 +162,7 @@ public class UpdateClient extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Record successfully updated", "Update Client",
                 JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Correct values and field names must be correct", "Update Client",
+            JOptionPane.showMessageDialog(this, "Values and field names must be correct", "Update Client",
                 JOptionPane.ERROR_MESSAGE);
         }
     }

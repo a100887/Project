@@ -275,20 +275,20 @@ public class InsertClient extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
-        String name = txtName.getText();
-        String surname = txtSurname.getText();
-        String email = txtEmail.getText();
-        String password = txtPassword.getText();
-        String houseNo = txtHouseNo.getText();
-        String streetAddress = txtAddress.getText();
-        String locality = txtLocality.getText();
+        String name = txtName.getText().trim();
+        String surname = txtSurname.getText().trim();
+        String email = txtEmail.getText().trim();
+        String password = txtPassword.getText().trim();
+        String houseNo = txtHouseNo.getText().trim();
+        String streetAddress = txtAddress.getText().trim();
+        String locality = txtLocality.getText().trim();
         int countryId = cmbCountry.getSelectedIndex() + 1;
-        String phone = txtPhoneNo.getText();
+        String phone = txtPhoneNo.getText().trim();
                 
         
         if (isNotEmpty(name, surname, email, password, houseNo, streetAddress, locality, phone)) {
             
-            if (isAlphabetic(name) && isAlphabetic(surname) && isAlphabetic(streetAddress) && isAlphabetic(locality)) {
+            if (isAlphabetic(name) && isAlphabetic(surname) && isAlphabetic(locality)) {
                 insertProduct(name, surname, email, password, houseNo, streetAddress, locality, countryId, phone);
             }
             
@@ -299,7 +299,7 @@ public class InsertClient extends javax.swing.JFrame {
         }
         
         else {
-            JOptionPane.showMessageDialog(this, "Fields cannot be left blank", "Insert Client",
+            JOptionPane.showMessageDialog(this, "Fields cannot be left blank or email may already be taken", "Insert Client",
                 JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton3ActionPerformed

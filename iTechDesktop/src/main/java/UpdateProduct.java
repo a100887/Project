@@ -163,7 +163,7 @@ public class UpdateProduct extends javax.swing.JFrame {
                 JOptionPane.INFORMATION_MESSAGE);
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Correct values and field names must be correct", "Update Product",
+            JOptionPane.showMessageDialog(this, "Values and field names must be correct", "Update Product",
                 JOptionPane.ERROR_MESSAGE);
         }
     }
