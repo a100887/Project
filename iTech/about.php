@@ -6,7 +6,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>iTech - Home</title>
+        <title>iTech - About</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css">
     </head>
@@ -48,14 +48,14 @@
         </nav>
         
         <header id="aboutBanner">
-            <div class="bannerText"><h3><strong>About Us</strong></h3></div>
+            <div class="bannerText"><h3 class="display-2"><strong>About Us</strong></h3></div>
         </header>
         
         <main class="aboutMain">
             <section>
-                <h3 class="aboutHeader">Who are we?</h3>
+                <h3 class="aboutHeader">What is iTech?</h3>
                 <br>
-                <p class="aboutIntro">iTech is a gaming hardware manufacturing company established in 2009 by Silvan Vella, with dual headquarters in Birgu and Xlendi. The company’s main headquarters is stationed in Malta  and it has been listed in the Hong Kong Stock Exchange since November 2017. iTech is one of the world's most recognizable and best-performing gaming brands and is also considered one of the pioneers of esports as well as one of the biggest brands in esports today.</p>
+                <p class="aboutIntro">iTech is a gaming hardware manufacturing company established in 2009, with dual headquarters in Birgu and Xlendi. The company’s main headquarters is stationed in Malta. iTech is one of the world's most recognizable and best-performing gaming brands and is also considered one of the pioneers of esports as well as one of the biggest brands in esports today.</p>
             </section>
             
             <section>

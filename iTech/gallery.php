@@ -6,7 +6,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>iTech - Home</title>
+        <title>iTech - Gallery</title>
         <script src="js/jquery-3.2.1.min.js"></script>
         <link href="css/lightbox.css" rel="stylesheet">
 		<script src="js/lightbox.js"></script>
@@ -67,7 +67,6 @@
 			</section>
 			
 			<section class="gallerySec">
-				
 				<a href="images/setup5.jpg" data-lightbox="setup"><img src="images/setup5.jpg" alt="setup"></a>
 				<a href="images/setup6.jpg" data-lightbox="setup"><img src="images/setup6.jpg" alt="setup"></a>
 				<a href="images/setup7.jpg" data-lightbox="setup"> <img src="images/setup7.jpg" alt="setup"></a>

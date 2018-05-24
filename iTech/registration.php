@@ -15,7 +15,7 @@
 <html lang="EN">
 <head> <!--head information-->
 	<meta charset="UTF-8"/>
-	<title>Enter details</title>
+	<title>iTech - Registration</title>
 	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 	 <link rel="stylesheet" href="css/style.css">
 	 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -54,7 +54,7 @@
                     ?>
                 </li>
             </ul>
-        </nav>
+    </nav>
 	<div class='container'>
         <h1 class="regHeader">Register</h1>
         <br>
@@ -162,11 +162,6 @@
             $check = false;
         
             if (!empty($name && $surname && $email && $password && $houseNo && $locality && $phone)) {
-                
-                
-                //if ((is_numeric($houseNo) && is_numeric($phone)) && (!(is_numeric($name) && is_numeric($surname) && is_numeric($street) && is_numeric($locality)))) {
-                    //$check = true;
-                //}
                 
                 $check = true;
                         

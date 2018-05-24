@@ -55,7 +55,7 @@
                <div class="webTitle">
                     <h1>iTech</h1>
                     <h3>Changes for the Better</h3>
-                    <div class="button">Learn More</div>
+                    <a href="help.php"><div class="button">Help</div></a>
                </div>
             </section>
             
@@ -86,7 +86,7 @@
 
 				<div>
 					<i class="fa fa-map-marker"><img src="images/marker.png" alt=""></i>
-					<p><span>St.Laurence Street</span> Birgu, Malta</p>
+					<p><span>St.Laurence Street</span>Birgu, Malta</p>
 				</div>
 
 				<div>
@@ -116,9 +116,7 @@
 					<a href="https://github.com/"><img src="images/github.png" alt=""><i class="fa fa-github"></i></a>
 
 				</div>
-
 			</div>
-
 		</footer>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

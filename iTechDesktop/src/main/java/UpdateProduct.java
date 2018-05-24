@@ -45,6 +45,7 @@ public class UpdateProduct extends javax.swing.JFrame {
         logout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         btnPUpdate.setText("Update");
         btnPUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +66,12 @@ public class UpdateProduct extends javax.swing.JFrame {
         jLabel2.setText("Value:");
 
         jLabel3.setText("Product ID: ");
+
+        txtPid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPidActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Update Product");
@@ -88,54 +95,52 @@ public class UpdateProduct extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnPUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(btnBkMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPid, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtField, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(69, Short.MAX_VALUE))
+                            .addComponent(txtValue, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
+                            .addComponent(txtField)
+                            .addComponent(txtPid)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnPUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBkMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(91, 91, 91))
+                        .addGap(82, 82, 82)
+                        .addComponent(jLabel4)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtPid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBkMenu)
-                    .addComponent(btnPUpdate))
-                .addGap(23, 23, 23))
+                    .addComponent(btnPUpdate)
+                    .addComponent(btnBkMenu))
+                .addGap(20, 20, 20))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     public boolean isNotEmpty(String val, String field, String pId) {
@@ -148,7 +153,7 @@ public class UpdateProduct extends javax.swing.JFrame {
         
         return check;
     }
-    
+    //Updating the product accordinly depending on the parameters passed
     public void productUpdate(String val, String field, String pId)
             
     {
@@ -171,15 +176,21 @@ public class UpdateProduct extends javax.swing.JFrame {
     
     private void btnPUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPUpdateActionPerformed
         // TODO add your handling code here:
+        //Getting the values the data from the input fields
         String pid = txtPid.getText().trim();
         String field = txtField.getText().trim();
         String val = txtValue.getText().trim();
         
+        //checking if the variables are empty
         if(isNotEmpty(val, field, pid)) {
+            
+            //Calling the product update method to update the specific product
             productUpdate(val, field, pid);
         }
         
         else {
+            
+            //Showing an error message if the fields are empty
             JOptionPane.showMessageDialog(this, "Cannot be left blank", "Update Client",
                 JOptionPane.ERROR_MESSAGE);
         }
@@ -187,7 +198,10 @@ public class UpdateProduct extends javax.swing.JFrame {
 
     private void btnBkMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBkMenuActionPerformed
         // TODO add your handling code here:
+        
+        //Closing this window
         this.dispose();
+        //Creating a new instance of the menu window and displaying it when the back to menu button is clicked
         Menu menu = new Menu();
         menu.setVisible(true);
         
@@ -199,6 +213,10 @@ public class UpdateProduct extends javax.swing.JFrame {
         Login lgn = new Login();
         lgn.setVisible(true);
     }//GEN-LAST:event_logoutActionPerformed
+
+    private void txtPidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPidActionPerformed
 
     /**
      * @param args the command line arguments

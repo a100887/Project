@@ -65,41 +65,42 @@ public class Login extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addGap(35, 35, 35)
+                .addGap(79, 79, 79)
+                .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(usernameTxt)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(passwordTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
-                .addContainerGap(131, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(usernameTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                    .addComponent(passwordTxt))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(77, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(79, 79, 79))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(usernameTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(passwordTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(loginBtn)
-                .addGap(31, 31, 31))
+                .addGap(21, 21, 21))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public boolean login(String username, String pwd)
@@ -112,6 +113,7 @@ public class Login extends javax.swing.JFrame {
             
             Statement stmt = con.createStatement();
             
+            //Selecting and returning those records that matched the username and password inputted by the user
             ResultSet rs = stmt.executeQuery("SELECT * FROM admin WHERE aId = '" + username + "' AND BINARY aPassword = '" + pwd + "'");
             
             if (rs.next()) {
@@ -127,6 +129,7 @@ public class Login extends javax.swing.JFrame {
          return check;
     }
     
+    //Checking that the login input fields are not empty
     public boolean isLoginNotEmpty(String user, String pwd) {
         boolean check = false;
         if (!(user.equals("") || pwd.equals(""))) {
@@ -141,20 +144,24 @@ public class Login extends javax.swing.JFrame {
         String aId = usernameTxt.getText();
         String pwd = passwordTxt.getText();
         
+        //If the fields are not empty it will execute its code block
         if (isLoginNotEmpty(aId, pwd)) {
             
+            //If there is a record which matches the inputted username and password the user will get logged in
             if (login(aId, pwd)) {
                 this.dispose();
                 Menu menu = new Menu();
                 menu.setVisible(true);
             }
             
+            //Otherwise, invalid credentials message will show
             else {
                 JOptionPane.showMessageDialog(this, "Incorrect credentials", "Login",
                 JOptionPane.ERROR_MESSAGE);
             }
         }
         
+        //If the fields are left empty an error message will be displayed
         else {
              JOptionPane.showMessageDialog(this, "Cannot be left empty", "Login",
                 JOptionPane.ERROR_MESSAGE);
